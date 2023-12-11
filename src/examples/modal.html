@@ -1,0 +1,15 @@
+<!-- 
+	Модальное окно
+	Не забудьте связать кнопку вызова модального окна с его содержимым через задание одинаковых значений у атрибута data-modal кнопки и id у окна
+-->
+
+<button type="button" data-modal="modalWindow" data-om-cta="open">Open modal window</button>
+<div role="dialog" class="modal" id="modalWindow">
+  <div class="modal__overlay">
+    <div class="modal__content">
+      <h1>Headline</h1>
+      <p>Lorem ipsum dolor sit amet consectetur. Amet cursus magna semper scelerisque sem diam aliquam sit turpis. Dignissim turpis ullamcorper non adipiscing libero sed metus semper.</p>
+      <button type="button" class="modal__close" aria-label="Close" data-om-cta="close"></button>
+    </div>
+  </div>
+</div>

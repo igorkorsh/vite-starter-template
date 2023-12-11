@@ -1,0 +1,28 @@
+@use "sass:math";
+@use "sass:meta";
+
+// Удаляет единицы измерения из значения
+@function strip($value) {
+	@if meta.type-of($value) == "number" and not math.is-unitless($value) {
+		@return math.div($value, ($value * 0 + 1))
+	};
+
+	@return $value;
+};
+
+// Возвращает размер шрифта, адаптированный к ширине viewport.
+@function mqclamp($minFontSize, $maxFontSize, $minViewportWidth: 640px, $maxViewportWidth: 1024px) {
+	@each $argument in ($minFontSize, $maxFontSize, $minViewportWidth, $maxViewportWidth) {
+		@if math.unit($argument) != "px" {
+      @warn "Значение должно быть задано в пикселях (px)";
+    }
+	}
+
+	// Вычисляет разницу между максимальным и минимальным размером шрифта
+	$diffFontSize: strip($maxFontSize) - strip($minFontSize);
+
+	// Вычисляет разницу между максимальной и минимальной шириной viewport.
+	$diffViewportWidth: strip($maxViewportWidth) - strip($minViewportWidth);
+
+	@return calc($minFontSize + $diffFontSize * ((100vw - $minViewportWidth) / $diffViewportWidth));
+};

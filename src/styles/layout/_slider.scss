@@ -1,0 +1,17 @@
+@use "../components/swiper";
+
+.slider__button {
+	@extend %swiper-button;
+}
+
+.slider__button--prev {
+	@extend %swiper-button-prev;
+}
+
+.slider__button--next {
+	@extend %swiper-button-next;
+}
+
+.swiper-pagination {
+	@extend %swiper-pagination;
+}

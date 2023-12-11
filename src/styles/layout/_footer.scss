@@ -1,0 +1,147 @@
+@use "sass:map";
+@use "../base/colors" as *;
+
+$light: (
+  bgColor: $white,
+  dividerColor: $gray-800,
+  logoColor: $black,
+  textColor: $gray-500,
+  linkColor: $green-600,
+  linkHoverColor: $green-300,
+  socialIconColor: $gray-400,
+	socialIconHoverColor: $gray-100
+);
+$dark: (
+  bgColor: $gray-300,
+  dividerColor: $white-10,
+  logoColor: $white,
+  textColor: $white-60,
+  linkColor: $green-300,
+  linkHoverColor: $green-600,
+  socialIconColor: $white,
+	socialIconHoverColor: $white-80
+);
+
+$theme: $dark;
+$divider: false;
+$tablet: 640px;
+$desktop: 1024px; // 1200px для стандартного футера на русском
+
+.footer {
+  color: map.get($theme, textColor);
+  background-color: map.get($theme, bgColor);
+}
+
+.footer__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 22.45px;
+  padding-bottom: 16px;
+  column-gap: 19.8px;
+  row-gap: 18.75px;
+
+	@if $divider {
+		&::before {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 2px;
+			background-color: map.get($theme, dividerColor);
+			content: "";
+		}
+	}
+  
+  @media (min-width: #{$tablet}) {
+    padding-bottom: 24px;
+    row-gap: 22.75px;
+  }
+
+  @media (min-width: #{$desktop}) {
+    flex-direction: row;
+    padding-top: 26.13px;
+    padding-bottom: 24.48px;
+  }
+}
+
+.footer__logo {
+  width: 130.23px;
+  height: 24.8px;
+  color: map.get($theme, logoColor);
+
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  @media (min-width: #{$tablet}) {
+    width: 154.34px;
+    height: 29.4px;
+  }
+}
+
+.footer__social {
+  display: flex;
+  flex-grow: 1;
+  align-self: center;
+  justify-content: flex-end;
+  column-gap: 12px;
+
+  a {
+    color: map.get($theme, socialIconColor);
+    text-decoration: none;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: map.get($theme, socialIconHoverColor);
+		}
+  }
+
+  @media (min-width: #{$desktop}) {
+    order: 2;
+  }
+}
+
+.footer__text {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  row-gap: 4px;
+
+  @media (min-width: #{$desktop}) {
+    flex-basis: auto;
+    transform: translateY(4px);
+  }
+}
+
+.footer__text-item:not(:last-of-type) {
+  padding-right: 8px;
+}
+
+.footer__text-item:not(:first-of-type) {
+  position: relative;
+  padding-left: 6px;
+
+  &::before {
+    display: inline-block;
+    color: map.get($theme, textColor);
+    transform: translateX(-6px);
+    content: "•";
+  }
+}
+
+.footer__link {
+  color: map.get($theme, linkColor);
+  font-weight: 600;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: map.get($theme, linkHoverColor);
+  }
+}

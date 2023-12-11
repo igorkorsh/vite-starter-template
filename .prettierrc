@@ -1,0 +1,14 @@
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "useTabs": false,
+  "singleAttributePerLine": false,
+  "bracketSameLine": true,
+  "quoteProps": "as-needed",
+  "semi": true,
+  "overrides": [{ "files": "*.html", "options": { "printWidth": 300 } }]
+}

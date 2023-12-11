@@ -1,0 +1,23 @@
+@use "base" as *;
+@use "components";
+
+@use "./layout/nav";
+@use "./layout/slider";
+@use "./layout/footer";
+
+.container {
+	max-width: 1264px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 16px;
+	padding-left: 16px;
+
+  @media (min-width: 640px) {
+    padding-right: 32px;
+		padding-left: 32px;
+  }
+}
+
+.no-scroll {
+	overflow: hidden;
+}

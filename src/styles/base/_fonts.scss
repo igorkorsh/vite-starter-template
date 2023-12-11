@@ -1,0 +1,79 @@
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap");
+
+// Арабский
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap");
+
+// Иврит
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700;800&display=swap");
+
+// Японский
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap");
+
+// Корейский
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap");
+
+// Китайский (упрощенный)
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap");
+
+// Китайский (традиционный)
+// @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap");
+
+@font-face {
+  font-weight: 300;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Light.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Light.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Regular.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 500;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Medium.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Medium.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 600;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_SemiBold.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_SemiBold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Bold.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_Bold.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 800;
+  font-family: "Kaspersky Sans Display";
+  font-style: normal;
+  src:
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_ExtraBold.woff2") format("woff2"),
+    url("https://go.kaspersky.com/rs/802-IJN-240/images/Kaspersky_Sans_Display_ExtraBold.woff") format("woff");
+  font-display: swap;
+}

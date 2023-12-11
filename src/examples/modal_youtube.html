@@ -1,0 +1,14 @@
+<!-- 
+	YouTube
+	В качестве значения атрибута data-ytvideo указываем id видеоролика
+	Например: https://www.youtube.com/watch?v=jNQXAC9IVRw -> jNQXAC9IVRw
+-->
+<button type="button" data-modal="modalYoutubeVideo" data-ytvideo="" aria-label="Show video" data-om-cta="play">Button text</button>
+<div role="dialog" class="modal" id="modalYoutubeVideo" aria-modal="true">
+  <div class="modal__overlay">
+    <div class="modal__media">
+      <div id="ytplayer"></div>
+      <button type="button" class="modal__close" aria-label="Pause video" data-om-cta="pause"></button>
+    </div>
+  </div>
+</div>

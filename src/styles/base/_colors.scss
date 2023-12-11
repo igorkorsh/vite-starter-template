@@ -1,0 +1,62 @@
+$green-600: #00a88e;
+$green-300: #29ccb1;
+$green-200: #3de8ca;
+$green-100: #9dffef;
+$green-50: #effffc;
+$black: #1d1d1b;
+$white: #fff;
+
+$gray-100: #0f151c;
+$gray-200: #131a23;
+$gray-300: #21272f;
+$gray-400: #383f48;
+$gray-500: rgba(#2a3541, 0.7);
+$gray-600: rgba(#223449, 0.4);
+$gray-700: rgba(#1d3653, 0.17);
+$gray-800: rgba(#294d75, 0.09);
+$gray-900: #f4f7fa;
+
+$white-100: $white;
+$white-80: rgba($white, 0.8);
+$white-60: rgba($white, 0.6);
+$white-40: rgba($white, 0.4);
+$white-32: rgba($white, 0.32);
+$white-20: rgba($white, 0.2);
+$white-10: rgba($white, 0.1);
+
+$cyan-600: #33c2ff;
+$blue-600: #335cff;
+$violet-600: #7033ff;
+$purple-600: #d633ff;
+$pink-600: #ff33c2;
+$red-600: #ff335c;
+$orange-600: #ff7033;
+$yellow-600: #ffd633;
+$lime-600: #ffd633;
+$neon-600: #5f3;
+$mint-600: #4dff82;
+
+$interface-yellow: #f3b846;
+$interface-green: #138170;
+$interface-blue: #4b69ff;
+$interface-blue-hover: #304ee4;
+$interface-red: #ff5470;
+$interface-red-hover: #e4304e;
+
+$shadow-100: 0 4px 4px -2px rgba(#18274b, 0.08), 0 2px 4px -2px rgba(#18274b, 0.12);
+$shadow-300: 0 8px 16px -6px rgba(#18274b, 0.08), 0 6px 8px -6px rgba(#18274b, 0.12);
+$shadow-500: 0 10px 32px -4px rgba(#18274b, 0.1), 0 6px 14px -6px rgba(#18274b, 0.12);
+$shadow-700: 0 14px 64px -4px rgba(#18274b, 0.12), 0 8px 22px -6px rgba(#18274b, 0.12);
+$card-shadow: 0 4px 40px 0 rgba(#556e6e, 0.16);
+$card-shadow-hover: 0 8px 40px 0 rgba(#556e6e, 0.24);
+$green-shadow: 0 4px 24px 0 rgba(#23d1ae, 0.24);
+$green-shadow-hover: 0 8px 32px 0 rgba(#23d1ae, 0.4);
+$button-red-shadow: 0 8px 40px 0 rgba(#fa625b, 0.24);
+$button-red-shadow-hover: 0 4px 40px 0 rgba(#fa625b, 0.20);
+
+$dark-shadow: 0 4px 32px 0 rgba(#000, 0.32);
+$dark-shadow-hover: 0 8px 40px 0 rgba(#000, 0.48);
+
+$gradient-green-neon: linear-gradient(24deg, #23d1ae 11.95%, #7eff33 92.86%);
+$gradient-green: linear-gradient(26deg, #00a88e 22.8%, #3de8ca 84.13%);
+$gradient-dark-green: linear-gradient(41deg, #1d1d1b 0%, #146658 44.27%, #29ccb1 100%);

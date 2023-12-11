@@ -1,0 +1,22 @@
+# Игнорируем все файлы в директориях
+node_modules
+plugins
+build
+marketo
+
+# Игнорируем все файлы начинающиеся с точки
+# .*
+
+# Игнорируем все файлы стилей
+*.scss
+
+# Игнорируем html-сниппеты
+src/snippets/*.html
+
+# Игнорируем указанные файлы
+package.json
+package-lock.json
+pnpm-lock.yaml
+
+# Игнорируем readme-файл
+README.md

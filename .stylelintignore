@@ -1,0 +1,4 @@
+# Игнорируем все файлы в директориях
+node_modules
+build
+marketo

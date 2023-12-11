@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "tag-req-attr": [
+      "warning",
+      {
+        "a": [
+          {
+            "name": "data-om-cta"
+          }
+        ],
+        "button": [
+          {
+            "name": "data-om-cta"
+          }
+        ]
+      }
+    ]
+  }
+}

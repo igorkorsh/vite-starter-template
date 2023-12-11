@@ -1,0 +1,281 @@
+@use "sass:map";
+@use "../base/colors" as *;
+@use "../components/button";
+
+$light: (
+  bgColor: $white,
+  boxShadow: $shadow-100,
+  logoColor: $black,
+  togglerIconColor: $gray-600,
+  langColor: $gray-600,
+  menuBgColor: $white,
+  menuLinkColor: $black,
+  menuLinkPseudoElementColor: $green-300,
+  menuDividerColor: $gray-800,
+  menuAccentBgColor: $green-600,
+  menuAccentBgHoverColor: $green-300,
+  menuAccentLinkColor: $white,
+);
+$dark: (
+  bgColor: $gray-300,
+  boxShadow: $dark-shadow,
+  logoColor: $white,
+  togglerIconColor: $white,
+  langColor: $white-40,
+  menuBgColor: $gray-300,
+  menuLinkColor: $white,
+  menuLinkPseudoElementColor: $green-300,
+  menuDividerColor: $white-10,
+  menuAccentBgColor: $green-600,
+  menuAccentBgHoverColor: $green-300,
+  menuAccentLinkColor: $white,
+);
+
+$theme: $dark;
+$tablet: 640px;
+$desktop: 1024px;
+
+body {
+  padding-top: 54px;
+
+  @media (min-width: #{$desktop}) {
+    padding-top: 64px;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+  background-color: map.get($theme, bgColor);
+  box-shadow: map.get($theme, boxShadow);
+}
+
+.nav__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 54px;
+  padding-right: 64px;
+
+  @media (min-width: #{$desktop}) {
+    flex-grow: 1;
+    max-width: 1264px;
+    height: 64px;
+    margin: 0 auto;
+    padding-right: 32px !important;
+    padding-left: 32px !important;
+    column-gap: 23.47px;
+  }
+}
+
+.nav__toggler {
+  @extend %button;
+  width: 64px;
+  height: 100%;
+  background-color: map.get($theme, bgColor);
+  border: 0;
+  place-content: center;
+
+  @media (min-width: #{$desktop}) {
+    display: none;
+  }
+}
+
+.nav__toggler-icon {
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+
+  [aria-expanded="false"] & {
+    background-image: svg-load("../icons/menu.svg", fill="#{map.get($theme, togglerIconColor)}");
+  }
+
+  [aria-expanded="true"] & {
+    background-image: svg-load("../icons/close.svg", fill="#{map.get($theme, togglerIconColor)}");
+  }
+}
+
+.nav__logo {
+  width: 130.23px;
+  height: 24.8px;
+  margin: 0 auto;
+  color: map.get($theme, logoColor);
+
+  svg {
+    width: inherit;
+    height: inherit;
+  }
+
+  @media (min-width: #{$desktop}) {
+    width: 154.34px;
+    height: 29.4px;
+    margin: 0;
+  }
+}
+
+.nav__menu {
+  display: none;
+
+  @media (min-width: #{$desktop}) {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+	&.open {
+		position: absolute;
+		top: 54px;
+		right: 0;
+		left: 0;
+		display: block;
+		min-height: calc(100vh - 54px);
+		overflow: auto;
+
+		li {
+			background-color: map.get($theme, menuBgColor);
+		}
+
+		li:last-of-type {
+			box-shadow: map.get($theme, boxShadow);
+		}
+	}
+}
+
+.nav__menu-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding-right: 16px;
+  padding-left: 16px;
+  color: map.get($theme, menuLinkColor);
+  text-decoration: none;
+
+  @media (max-width: #{$desktop - 0.02}) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    &::before,
+    &.active::before {
+      position: absolute;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background-color: map.get($theme, menuLinkPseudoElementColor);
+      border-radius: 1.5px;
+      transform: scaleY(0);
+      transition: transform 0.2s ease;
+      content: "";
+      will-change: transform;
+    }
+
+    &.active::before {
+      transform: scaleY(1) !important;
+    }
+
+    &:hover {
+      font-weight: 600;
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+    }
+
+    &::after {
+      position: absolute;
+      right: 16px;
+      bottom: 0;
+      left: 16px;
+      height: 1px;
+      background-color: map.get($theme, menuDividerColor);
+      content: "";
+    }
+  }
+
+  @media (min-width: #{$desktop}) {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    &::before,
+    &.active::before {
+      position: absolute;
+      right: 16px;
+      bottom: 0;
+      left: 16px;
+      height: 3px;
+      background-color: map.get($theme, menuLinkPseudoElementColor);
+      border-radius: 1.5px;
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+      content: "";
+      will-change: transform;
+    }
+
+    &.active::before {
+      transform: scaleX(1) !important;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.nav__menu-accent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding-right: 16px;
+  padding-left: 16px;
+  color: map.get($theme, menuAccentLinkColor);
+  text-decoration: none;
+  background-color: map.get($theme, menuAccentBgColor);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: map.get($theme, menuAccentBgHoverColor);
+  }
+
+  @media (max-width: #{$desktop - 0.02}) {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  @media (min-width: #{$desktop}) {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.nav__menu-button {
+  padding: 16px;
+
+	& > * {
+		@extend %button;
+		@extend %size-64;
+		@extend %primary-green;
+		width: 100%;
+
+		@media (min-width: #{$desktop}) {
+			padding: 14px 24px;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 20px;
+			border-radius: 8px;
+		}
+	}
+
+  @media (min-width: #{$desktop}) {
+		margin-left: auto;
+    padding: 0;
+  }
+}

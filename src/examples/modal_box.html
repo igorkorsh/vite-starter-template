@@ -1,0 +1,15 @@
+<!-- 
+	Kaspersky Box
+	В качестве значения атрибута data-url указываем URL видеоролика
+	Обратите внимание, что параметр dl=1 добавится автоматически, так что его можно не указывать
+	Например: https://box.kaspersky.com/f/5d362b7f0a9e4804bcf0/?dl=1
+-->
+<button type="button" data-modal="modalBoxVideo" data-url="" data-poster="" aria-label="Show video" data-om-cta="play"></button>
+<div role="dialog" class="modal" id="modalBoxVideo" aria-modal="true">
+  <div class="modal__overlay">
+    <div class="modal__media">
+      <div id="boxplayer"></div>
+      <button type="button" class="modal__close" aria-label="Pause video" data-om-cta="pause"></button>
+    </div>
+  </div>
+</div>

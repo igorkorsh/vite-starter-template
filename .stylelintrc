@@ -1,0 +1,17 @@
+{
+  "plugins": ["stylelint-prettier", "stylelint-scss"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "prettier/prettier": true,
+    "function-no-unknown": null,
+    "max-nesting-depth": 2,
+    "no-descending-specificity": null,
+    "selector-max-id": 1,
+    "scss/at-function-pattern": null,
+    "scss/function-no-unknown": [true, { "ignoreFunctions": ["svg-load", "strip", "mqclamp"] }]
+  }
+}

@@ -1,0 +1,190 @@
+@use "sass:map";
+@use "../base/colors" as *;
+@use "button";
+@use "typography";
+
+$form-white: (
+  textColor: $black,
+  borderColor: $gray-700,
+  borderHoverColor: $green-300,
+  disabledBgColor: $gray-800,
+  disabledBorderColor: $gray-800,
+  disabledTextColor: $gray-600,
+  placeholderColor: $gray-500,
+  errorColor: $red-600,
+  selectArrowColor: $black,
+	optionBgColor: $white,
+);
+$form-ghost-black: (
+  textColor: $black,
+  borderColor: $black,
+  borderHoverColor: $black,
+  disabledBgColor: $gray-800,
+  disabledBorderColor: $gray-800,
+  disabledTextColor: $gray-600,
+  placeholderColor: $gray-500,
+  errorColor: $red-600,
+  selectArrowColor: $black,
+	optionBgColor: $white,
+);
+$form-ghost-white: (
+  textColor: $white,
+  borderColor: $white,
+  borderHoverColor: $green-300,
+  disabledBgColor: $gray-800,
+  disabledBorderColor: $gray-800,
+  disabledTextColor: $gray-600,
+  placeholderColor: $white-60,
+  errorColor: $red-600,
+  selectArrowColor: $white,
+	optionBgColor: $black,
+);
+
+$form-theme: $form-ghost-white;
+
+.mktoForm {
+  width: 100% !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+	a {
+    color: $green-600;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $green-300;
+    }
+  }
+}
+
+.mktoLabel {
+  display: none;
+
+  // & + .mktoField {
+  //   margin-top: 4px;
+  // }
+}
+
+.mktoField.mktoHasWidth {
+  width: 100% !important;
+  padding: 15px 11px;
+  color: map.get($form-theme, textColor);
+  background-color: transparent;
+  background-clip: padding-box;
+  border: 1px solid map.get($form-theme, borderColor);
+  border-radius: 8px;
+  appearance: none;
+
+  &:hover,
+  &:focus {
+    border-color: map.get($form-theme, borderHoverColor);
+    outline: 2px solid map.get($form-theme, borderHoverColor);
+    outline-offset: -2px;
+  }
+
+  &[aria-invalid="true"]:focus-visible {
+    border-color: map.get($form-theme, errorColor);
+  }
+
+  &:disabled {
+    color: map.get($form-theme, disabledTextColor);
+    background-color: map.get($form-theme, disabledBgColor);
+    border-color: map.get($form-theme, disabledBorderColor);
+  }
+}
+
+option {
+	background-color: map.get($form-theme, optionBgColor);
+}
+
+::placeholder {
+  color: map.get($form-theme, placeholderColor);
+}
+
+select.mktoField.mktoHasWidth {
+  background-image: svg-load("../icons/arrow.svg", fill="#{map.get($form-theme, selectArrowColor)}");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+  background-size: 16px;
+}
+
+.mktoErrorMsg {
+  color: map.get($form-theme, errorColor);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.mktoFormRow > *:only-child {
+  margin-bottom: 16px;
+}
+
+.mktoFormFlexRow {
+  display: flex;
+  padding: 8px 0;
+  column-gap: 12px;
+}
+
+.mktoCheckboxListFlexRow {
+  display: flex;
+  column-gap: 12px;
+}
+
+.mktoCustomNumberField {
+	position: relative;
+
+	[type="number"] {
+		appearance: textfield;
+	}
+
+	button {
+		@extend %button;
+		position: absolute;
+		right: 12px;
+		width: 16px;
+		height: 16px;
+
+		&[data-value="up"] {
+			top: 8px;
+			background-image: svg-load("../icons/arrow.svg", fill="#{map.get($form-theme, selectArrowColor)}");
+			transform: scaleY(-1);
+		}
+	
+		&[data-value="down"] {
+			top: 24px;
+			background-image: svg-load("../icons/arrow.svg", fill="#{map.get($form-theme, selectArrowColor)}");
+		}
+	}
+}
+
+.mktoHtmlText {
+	@extend %text-12;
+  margin-top: 3px;
+  color: map.get($form-theme, textColor);
+
+	em {
+		font-style: normal;
+	}
+}
+
+.googleRecaptcha {
+  margin-top: 16px;
+}
+
+#g-recaptcha-response,
+[id*="g-recaptcha"] > iframe {
+  display: none;
+}
+
+.mktoButtonRow {
+  margin-top: 24px;
+}
+
+.mktoButton {
+  @extend %button;
+  @extend %size-48;
+  @extend %primary-green-shadow;
+}

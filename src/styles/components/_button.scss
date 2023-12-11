@@ -1,0 +1,472 @@
+@use "sass:color";
+@use "../base/colors" as *;
+
+%button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  padding: 0;
+	color: inherit;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  user-select: none;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+		box-shadow: none;
+    pointer-events: none;
+  }
+}
+
+%size-48 {
+	width: 100%;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 8px;
+
+	@media (min-width: 640px) {
+		width: auto;
+	}
+}
+
+%size-64 {
+	width: 100%;
+  padding: 20px 24px;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 24px;
+  border-radius: 8px;
+
+	@media (min-width: 640px) {
+		width: auto;
+	}
+}
+
+%primary-green {
+  color: $white;
+  background-color: $green-600;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $green-300;
+  }
+
+  &:active {
+    background-color: $interface-green;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-green-shadow {
+  color: $white;
+  background-color: $green-600;
+  box-shadow: $green-shadow-hover;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: $green-300;
+    box-shadow: $green-shadow-hover;
+  }
+
+  &:active {
+    background-color: $interface-green;
+    box-shadow: $green-shadow;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-black {
+  color: $white;
+  background-color: $black;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $green-300;
+  }
+
+  &:active {
+    color: $green-600;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-black-shadow {
+  color: $white;
+  background-color: $black;
+	box-shadow: $card-shadow-hover;
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: $green-300;
+		box-shadow: $card-shadow-hover;
+  }
+
+  &:active {
+    color: $green-600;
+		box-shadow: $card-shadow;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-white {
+  color: $black;
+  background-color: $white;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $green-600;
+  }
+
+  &:active {
+    color: $interface-green;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $white-32;
+  }
+}
+
+%primary-white-shadow {
+  color: $black;
+  background-color: $white;
+	box-shadow: $card-shadow-hover;
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: $green-600;
+		box-shadow: $card-shadow-hover;
+  }
+
+  &:active {
+    color: $interface-green;
+		box-shadow: $card-shadow;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $white-32;
+  }
+}
+
+%primary-blue {
+  color: $white;
+  background-color: $blue-600;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $interface-blue;
+  }
+
+  &:active {
+    background-color: $interface-blue-hover;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-blue-shadow {
+  color: $white;
+  background-color: $blue-600;
+	box-shadow: $shadow-700;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: $interface-blue;
+		box-shadow: $shadow-700;
+  }
+
+  &:active {
+    background-color: $interface-blue-hover;
+		box-shadow: $shadow-100;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-red {
+  color: $white;
+  background-color: $red-600;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: color.adjust($red-600, $lightness: 8%);
+  }
+
+  &:active {
+    background-color: color.adjust($red-600, $lightness: -6%);
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%primary-red-shadow {
+  color: $white;
+  background-color: $red-600;
+	box-shadow: $button-red-shadow;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: color.adjust($red-600, $lightness: 8%);
+		box-shadow: $button-red-shadow;
+  }
+
+  &:active {
+    background-color: color.adjust($red-600, $lightness: -6%);
+		box-shadow: $button-red-shadow-hover;
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%promo {
+  color: $black;
+  background-image: $gradient-green-neon;
+	box-shadow: 0 5px 15px 0 rgba(#3de8ca, 0.32);
+  transition: box-shadow 0.2s ease;
+
+	span {
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	&::before {
+		position: absolute;
+		background: linear-gradient(0deg, rgba(#000, 0.06) 0%, rgba(#000, 0.06) 100%), linear-gradient(45deg, #3de8ca 38.74%, #5f3 100%);
+		border-radius: inherit;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		content: "";
+		inset: 0;
+	}
+
+  &:hover {
+    background-image: $gradient-green-neon;
+		box-shadow: 0 7px 24px 0 rgba(#29ccb1, 0.4);
+  }
+
+  &:active {
+		box-shadow: 0 2px 12px 0 rgba(#8240fb, 0.24);
+
+		&::before {
+			opacity: 1;
+		}
+  }
+
+  &:disabled {
+    color: $gray-600;
+    background-color: $gray-800;
+  }
+}
+
+%ghost-green {
+	color: $green-600;
+	outline: 2px solid $green-600;
+	outline-offset: -2px;
+	transition: color 0.2s ease, outline-color 0.2s ease;
+
+	&:hover {
+		color: $green-300;
+		outline-color: $green-300;
+	}
+
+	&:active {
+		color: $interface-green;
+		outline-color: $interface-green;
+	}
+
+	&:disabled {
+		color: $gray-600;
+		background-color: $gray-800;
+		outline-color: $gray-800;
+	}
+}
+
+%ghost-black {
+	color: $black;
+	outline: 2px solid $black;
+	outline-offset: -2px;
+	transition: color 0.2s ease, outline-color 0.2s ease;
+
+	&:hover {
+		color: $gray-500;
+		outline-color: $gray-500;
+	}
+
+	&:active {
+		color: $gray-500;
+		outline-color: $gray-500;
+	}
+
+	&:disabled {
+		color: $gray-600;
+		background-color: $gray-800;
+		outline-color: $gray-800;
+	}
+}
+
+%ghost-gray {
+	color: $black;
+	outline: 2px solid $gray-600;
+	outline-offset: -2px;
+	transition: color 0.2s ease, outline-color 0.2s ease;
+
+	&:hover {
+		color: $gray-500;
+		outline-color: $gray-700;
+	}
+
+	&:active {
+		color: $gray-500;
+		outline-color: $gray-700;
+	}
+
+	&:disabled {
+		color: $gray-600;
+		background-color: $gray-800;
+		outline-color: $gray-800;
+	}
+}
+
+// Play buttons
+%play {
+	position: relative;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: all 0.2s ease;
+
+	&::after {
+		position: absolute;
+		top: 50%;
+		width: 50%;
+		height: 50%;
+		margin-top: -25%;
+		margin-left: 2px;
+		transition: all 0.2s ease;
+		content: "";
+	}
+
+	&:hover::after {
+		background-size: 100%;
+	}
+}	
+
+%play-48 {
+	width: 48px;
+	height: 48px;
+}
+
+%play-80 {
+	width: 80px;
+	height: 80px;
+}
+
+%play-96 {
+	width: 96px;
+	height: 96px;
+}
+
+%play-green {
+	background-color: $green-300;
+	box-shadow: $green-shadow-hover;
+
+	&::after {
+		background-image: svg-load("../icons/play.svg", fill=$white);
+	}
+
+	&:hover::after {
+		background-image: svg-load("../icons/play.svg", fill=$white-80);
+	}
+}
+
+%play-red {
+	background-color: $red-600;
+	box-shadow: $button-red-shadow;
+
+	&:hover {
+		background-color: rgba($red-600, 0.8);
+	}
+
+	&::after {
+		background-image: svg-load("../icons/play.svg", fill=$white);
+	}
+
+	&:hover::after {
+		background-image: svg-load("../icons/play.svg", fill=$white-80);
+	}
+}
+
+%play-black {
+	background-color: rgba($gray-200, 0.8);
+
+	&:hover {
+		background-color: rgba($gray-200, 0.9);
+		box-shadow: $card-shadow-hover;
+	}
+
+	&::after {
+		background-image: svg-load("../icons/play.svg", fill=$white);
+	}
+
+	&:hover::after {
+		background-image: svg-load("../icons/play-color.svg");
+	}
+}
+
+%play-white {
+	background-color: $white;
+	box-shadow: $shadow-700;
+
+	&:hover {
+		background-color: rgba($white, 0.9);
+	}
+
+	&::after {
+		background-image: svg-load("../icons/play.svg", fill=$green-300);
+	}
+
+	&:hover::after {
+		background-image: svg-load("../icons/play.svg", fill=$green-600);
+	}
+}

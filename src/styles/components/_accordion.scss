@@ -1,0 +1,65 @@
+@use "../base/colors" as *;
+@use "button";
+
+.accordion__header {
+	@extend %button;
+	position: relative;
+	justify-content: flex-start;
+	width: 100%;
+	padding: 32px;
+	padding-right: 80px;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 36px;
+
+	&::after {
+		position: absolute;
+		top: 38px;
+		right: 32px;
+		width: 24px;
+		height: 24px;
+		content: "";
+	}
+	
+	&[aria-expanded="false"]::after {
+		background-image: svg-load("../icons/plus.svg", fill=$green-300);
+	}
+
+	&[aria-expanded="true"]::after {
+		background-image: svg-load("../icons/minus.svg", fill=$green-300);
+	}
+}
+
+.accordion__panel {
+	position: relative;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease;
+
+	&.open::before {
+		position: absolute;
+		top: -1px;
+		right: 80px;
+		left: 32px;
+		height: 2px;
+		background-color: $white-60;
+		content: "";
+	}
+}
+
+.accordion__body {
+	padding: 32px;
+	padding-right: 80px;
+	padding-bottom: 48px;
+
+	p {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 21px;
+
+		&:not(:first-of-type) {
+			margin-top: 12px;
+		}
+	}
+}
+

@@ -1,0 +1,270 @@
+@use "sass:map";
+@use "../base/colors" as *;
+@use "button";
+
+$light: (
+  borderColor: $gray-600,
+  borderHoverColor: $gray-500,
+  disabledBgColor: $gray-800,
+  disabledBorderColor: $gray-800,
+  disabledCheckedBgColor: $gray-700,
+  disabledCheckedBorderColor: $gray-700,
+  disabledIconColor: $white,
+  errorBgColor: $gray-900,
+  errorBorderColor: $red-600,
+);
+$dark: (
+  borderColor: $white,
+  borderHoverColor: $white-60,
+  disabledBgColor: $white-10,
+  disabledBorderColor: $white-10,
+  disabledCheckedBgColor: $white-10,
+  disabledCheckedBorderColor: $white-10,
+  disabledIconColor: $white-20,
+  errorBgColor: transparent,
+  errorBorderColor: $red-600,
+);
+
+%checkbox-green {
+  &:checked {
+    background-color: $green-600;
+    border-color: $green-600;
+
+    &:hover,
+    &:focus {
+      background-color: $green-300;
+      border-color: $green-300;
+    }
+  }
+}
+
+%checkbox-blue {
+  &:checked {
+    background-color: $blue-600;
+    border-color: $blue-600;
+
+    &:hover,
+    &:focus {
+      background-color: $interface-blue;
+      border-color: $interface-blue;
+    }
+  }
+}
+
+%checkbox-black {
+  &:checked {
+    background-color: $black;
+    border-color: $black;
+
+    &:hover,
+    &:focus {
+      background-color: $gray-400;
+      border-color: $gray-400;
+    }
+  }
+}
+
+%checkbox-white {
+  &:checked {
+    background-color: $white;
+    border-color: $white;
+
+    &:hover,
+    &:focus {
+      background-color: $white-60;
+      border-color: $white-60;
+    }
+
+    &::before {
+      content: svg-load("../icons/check.svg", fill=$black);
+    }
+  }
+}
+
+%radio-green {
+  &:checked {
+    border-color: $green-600;
+
+		&::before {
+			background-color: $green-600;
+		}
+  }
+
+	&:checked:hover,
+	&:checked:focus {
+		border-color: $green-300;
+
+		&::before {
+			background-color: $green-300;
+		}
+	}
+}
+
+%radio-blue {
+  &:checked {
+    border-color: $blue-600;
+
+		&::before {
+			background-color: $blue-600;
+		}
+  }
+
+	&:checked:hover,
+	&:checked:focus {
+		border-color: $interface-blue;
+
+		&::before {
+			background-color: $interface-blue;
+		}
+	}
+}
+
+%radio-white {
+  &:checked {
+    border-color: $white;
+
+		&::before {
+			background-color: $white;
+		}
+  }
+
+	&:checked:hover,
+	&:checked:focus {
+		border-color: $white-60;
+
+		&::before {
+			background-color: $white-60;
+		}
+	}
+}
+
+%radio-black {
+  &:checked {
+    border-color: $black;
+
+		&::before {
+			background-color: $black;
+		}
+  }
+
+	&:checked:hover,
+	&:checked:focus {
+		border-color: $gray-400;
+
+		&::before {
+			background-color: $gray-400;
+		}
+	}
+}
+
+
+
+$theme: $dark;
+
+input[type="checkbox"] {
+  @extend %checkbox-green;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: transparent;
+  border: 2px solid map.get($theme, borderColor);
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  appearance: none;
+
+  &:hover,
+  &:focus {
+    border-color: map.get($theme, borderHoverColor);
+  }
+
+  &::before {
+    display: block;
+    width: 16px;
+    height: 16px;
+    transform: scale(0);
+    transition: transform 0.2s ease;
+    content: svg-load("../icons/check.svg", fill=$white);
+    will-change: transform;
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+
+  &:disabled {
+    background-color: map.get($theme, disabledBgColor);
+    border-color: map.get($theme, disabledBorderColor);
+
+    &:checked {
+      background-color: map.get($theme, disabledCheckedBgColor);
+      border-color: map.get($theme, disabledCheckedBorderColor);
+    }
+
+    &:checked::before {
+      content: svg-load("../icons/check.svg", fill="#{map.get($theme, disabledIconColor)}");
+    }
+  }
+
+  [aria-invalid="true"] & {
+    background-color: map.get($theme, errorBgColor);
+    border-color: map.get($theme, errorBorderColor);
+  }
+}
+
+input[type="radio"] {
+	@extend %radio-green;
+	position: relative;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background-color: transparent;
+  border: 2px solid map.get($theme, borderColor);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  appearance: none;
+
+	&:hover,
+  &:focus {
+    border-color: map.get($theme, borderHoverColor);
+  }
+
+	&::before {
+    position: absolute;
+		top: 3px;
+		left: 3px;
+    width: 10px;
+    height: 10px;
+		border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+		content: "";
+    will-change: transform;
+  }
+
+	&:checked::before {
+    transform: scale(1);
+  }
+
+	&:disabled {
+    background-color: map.get($theme, disabledBgColor);
+    border-color: map.get($theme, disabledBorderColor);
+
+    &:checked {
+      background-color: transparent;
+      border-color: map.get($theme, disabledCheckedBorderColor);
+    }
+
+    &:checked::before {
+      background-color: map.get($theme, disabledIconColor);
+    }
+  }
+
+  [aria-invalid="true"] & {
+    background-color: map.get($theme, errorBgColor);
+    border-color: map.get($theme, errorBorderColor);
+  }
+}
