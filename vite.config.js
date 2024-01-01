@@ -20,40 +20,24 @@ export default defineConfig({
     ViteImageOptimizer({
       test: /\.(jpe?g|png|svg)$/i,
       jpg: {
-        quality: 90,
+        quality: 92,
         progressive: true,
         quantizationTable: 3,
         trellisQuantisation: true,
       },
-      png: { quality: 90 },
+      png: { quality: 92 },
     }),
     isBuild && useCredentials(),
   ],
   css: {
     postcss: {
-      plugins: [
-        postcssInlineSvg(),
-        postcssRtl({
-          whitelist: [
-            "left",
-            "right",
-            "margin-left",
-            "margin-right",
-            "padding-left",
-            "padding-right",
-            "transform",
-            "background-position",
-            "border-left",
-            "border-right",
-          ],
-        }),
-        autoprefixer(),
-      ],
+      plugins: [postcssInlineSvg(), postcssRtl(), autoprefixer()],
     },
   },
   build: {
     modulePreload: false,
     outDir: isMarketo ? "../marketo" : "../build",
+    assetsInlineLimit: 0,
     rollupOptions: {
       input: {
         page_1: "src/index.html",
@@ -65,7 +49,7 @@ export default defineConfig({
           if (/\.css$/i.test(assetInfo.name)) {
             const cssDir = isMarketo ? "images" : "styles";
             return `${cssDir}/L${projectId}_style.css`;
-          } else if (/\.(pdf|mp4)$/i.test(assetInfo.name)) {
+          } else if (/\.pdf$/i.test(assetInfo.name)) {
             return `assets/[name].[ext]`;
           } else {
             return `images/L${projectId}_[name].[ext]`;

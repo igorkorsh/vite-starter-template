@@ -3,7 +3,7 @@ import "./modules/_scrollTo";
 import "./modules/_activeNavLink";
 import "./modules/_deStyleMarketo";
 import "./modules/_addCurrentYear";
-import "./modules/_swiper";
+// import "./modules/_swiper";
 // import "./modules/_modalWindow";
 // import "./modules/_modalYoutubeVideo";
 // import "./modules/_modalBoxVideo";
